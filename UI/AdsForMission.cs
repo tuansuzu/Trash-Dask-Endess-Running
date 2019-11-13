@@ -6,7 +6,6 @@ using UnityEngine.Advertisements;
 #endif
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
-using UnityEngine.Analytics.Experimental;
 #endif
 
 public class AdsForMission : MonoBehaviour
@@ -110,6 +109,6 @@ public class AdsForMission : MonoBehaviour
     {
         PlayerData.instance.AddMission();
         PlayerData.instance.Save();
-        missionUI.Open();
+        StartCoroutine(missionUI.Open());
     }
 }

@@ -7,7 +7,6 @@ using UnityEngine.Advertisements;
 #endif
 #if UNITY_ANALYTICS
 using UnityEngine.Analytics;
-using UnityEngine.Analytics.Experimental;
 #endif
 
 public class ShopUI : MonoBehaviour
@@ -37,7 +36,9 @@ public class ShopUI : MonoBehaviour
         PlayerData.Create();
 
         consumableDatabase.Load();
-        AssetBundlesDatabaseHandler.Load();
+        CoroutineHandler.StartStaticCoroutine(CharacterDatabase.LoadDatabase());
+        CoroutineHandler.StartStaticCoroutine(ThemeDatabase.LoadDatabase());
+
 
 #if UNITY_ANALYTICS
         AnalyticsEvent.StoreOpened(StoreType.Soft);
